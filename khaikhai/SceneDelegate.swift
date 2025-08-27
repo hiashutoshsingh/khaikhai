@@ -18,10 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let repo = RestaurantRepository()
-        let vm = RestaurantListViewModel(repository: repo)
-        let rootVC = ViewController()
-        rootVC.inject(viewModel: vm)
+        let rootVC = AppFactory.makeRestaurantListVC()
         
         window.rootViewController = UINavigationController(rootViewController: rootVC)
         self.window = window

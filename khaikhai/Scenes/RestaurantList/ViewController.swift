@@ -88,8 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let restaurant = restaurants[indexPath.row]
-        let vm = MenuViewModel(repository: RestaurantRepository(), restaurantId: restaurant.id)
-        let vc = MenuViewController(viewModel: vm)
+        let vc = AppFactory.makeMenuVC(for: restaurant)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
