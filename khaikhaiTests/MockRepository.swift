@@ -23,8 +23,6 @@ final class MockRestaurantRepository: RestaurantRepositoryProtocol {
             throw error
         }
     }
-
-    
     
     func fetchMenu(for restaurantId: String) async throws -> [MenuItem] {
         switch resultMenus {

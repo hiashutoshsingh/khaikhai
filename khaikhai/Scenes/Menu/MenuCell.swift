@@ -11,7 +11,6 @@ class MenuCell: UITableViewCell {
     private let restaurantImageView = UIImageView()
     private let nameLabel = UILabel()
     private let priceLabel = UILabel()
-    private let ratingLabel = UILabel()
     
     private var imageLoadTask: URLSessionDataTask?
     
@@ -48,15 +47,11 @@ class MenuCell: UITableViewCell {
         priceLabel.font = UIFont.systemFont(ofSize: 15)
         priceLabel.textColor = .secondaryLabel
         contentView.addSubview(priceLabel)
-        
-        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
-        ratingLabel.font = UIFont.systemFont(ofSize: 15)
-        ratingLabel.textColor = .systemOrange
-        contentView.addSubview(ratingLabel)
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
+        NSLayoutConstraint.activate(
+[
             restaurantImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             restaurantImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             restaurantImageView.widthAnchor.constraint(equalToConstant: 60),
@@ -68,14 +63,16 @@ class MenuCell: UITableViewCell {
             
             priceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
             priceLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: ratingLabel.leadingAnchor, constant: -8),
-            
-            ratingLabel.centerYAnchor.constraint(equalTo: priceLabel.centerYAnchor),
-            ratingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            priceLabel.trailingAnchor
+                .constraint(
+                    lessThanOrEqualTo: contentView.trailingAnchor,
+                    constant: -8
+                ),
             
             priceLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -12),
             restaurantImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -12)
-        ])
+        ]
+)
     }
     
     func configure(with menu: MenuItem) {

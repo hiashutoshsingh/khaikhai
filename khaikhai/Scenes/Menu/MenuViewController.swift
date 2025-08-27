@@ -1,6 +1,6 @@
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private let viewModel: MenuViewModel
     private let tableView = UITableView()
     private var menu: [MenuItem] = []

@@ -1,6 +1,6 @@
 import Foundation
 
-class MenuViewModel {
+final class MenuViewModel {
     enum State {
         case loading
         case success([MenuItem])

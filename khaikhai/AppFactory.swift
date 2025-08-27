@@ -6,7 +6,8 @@
 //
 
 struct AppFactory {
-    static let sharedRepository = RestaurantRepository()
+    private static let network = NetworkManager()
+    private static let sharedRepository = RestaurantRepository(network: network)
     
     static func makeRestaurantListVC() -> ViewController {
         let vm = RestaurantListViewModel(repository: sharedRepository)

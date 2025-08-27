@@ -1,6 +1,6 @@
 import Foundation
 
-class RestaurantListViewModel {
+final class RestaurantListViewModel {
     enum State {
         case loading
         case success([Restaurant])

@@ -8,7 +8,7 @@ protocol RestaurantRepositoryProtocol {
 class RestaurantRepository: RestaurantRepositoryProtocol {
     private let network: NetworkManaging
     
-    init(network: NetworkManaging = NetworkManager()) {
+    init(network: NetworkManaging) {
         self.network = network
     }
     

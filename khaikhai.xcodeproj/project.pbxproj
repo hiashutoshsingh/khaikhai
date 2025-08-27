@@ -53,11 +53,6 @@
 			path = khaikhaiTests;
 			sourceTree = "<group>";
 		};
-		541232682E5E224400734D2C /* khaikhaiUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = khaikhaiUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				541232472E5E224200734D2C /* khaikhai */,
 				5412325E2E5E224400734D2C /* khaikhaiTests */,
-				541232682E5E224400734D2C /* khaikhaiUITests */,
 				541232462E5E224200734D2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +159,6 @@
 			);
 			dependencies = (
 				541232672E5E224400734D2C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				541232682E5E224400734D2C /* khaikhaiUITests */,
 			);
 			name = khaikhaiUITests;
 			packageProductDependencies = (

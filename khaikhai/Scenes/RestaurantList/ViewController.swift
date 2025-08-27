@@ -4,8 +4,8 @@
 //
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    private(set) var viewModel: RestaurantListViewModel!
+final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    private(set) var viewModel: RestaurantListViewModel?
     private let tableView = UITableView()
     private var restaurants: [Restaurant] = []
     private let loader = UIActivityIndicatorView(style: .large)
@@ -40,6 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
         viewModel.stateChanged = { [weak self] state in
             DispatchQueue.main.async {
                 switch state {
