@@ -1,6 +1,6 @@
 import Foundation
 
-struct MenuItem: Codable, Identifiable {
+struct MenuItem: Codable, Identifiable, Equatable {
     let id: String
     let name: String
     let price: Double
