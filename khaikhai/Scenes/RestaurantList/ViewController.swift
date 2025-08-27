@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(RestaurantCell.self, forCellReuseIdentifier: "RestaurantCell")
         tableView.frame = view.bounds
         view.addSubview(tableView)
         loader.center = view.center
@@ -75,9 +75,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "RestaurantCell",
+            for: indexPath
+        ) as? RestaurantCell else {
+            return UITableViewCell()
+        }
         let restaurant = restaurants[indexPath.row]
-        cell.textLabel?.text = "\(restaurant.name) (⭐️\(restaurant.rating))"
+        cell.configure(with: restaurant)
         return cell
     }
 

@@ -27,7 +27,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MenuCell.self, forCellReuseIdentifier: "MenuCell")
         tableView.frame = view.bounds
         view.addSubview(tableView)
         loader.center = view.center
@@ -75,9 +75,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "MenuCell",
+            for: indexPath
+        ) as? MenuCell else {
+            return UITableViewCell()
+        }
         let item = menu[indexPath.row]
-        cell.textLabel?.text = "\(item.name) - $\(item.price)"
+        cell.configure(with: item)
         return cell
     }
 }
